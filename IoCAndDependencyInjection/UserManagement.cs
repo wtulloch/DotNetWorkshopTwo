@@ -6,21 +6,22 @@ namespace IoCAndDependencyInjection
     public class UserManagement: IDisposable
     {
         private EmailNotificationService _notificationService = new EmailNotificationService();
-
+        private UserRepository _userRepository = new UserRepository();
 
         public async Task<Notification>  AddNewUserAsync(string name)
         {
-            //we would do something here
+            var userInfo = new UserInfo {Name = name};
+            if(_userRepository.TryAddNewUser(userInfo))
+            {
+                return await _notificationService.Send(userInfo);
+            }
 
-           return await _notificationService.Send(new UserInfo {Name = name});
+            return await Task.FromResult(new Notification {Message = $"{name} already exists"});
         }
 
         public void Dispose()
         {
-            if(_notificationService != null)
-            {
-                _notificationService.Dispose();
-            }
+            _notificationService?.Dispose();
         }
     }
 }

@@ -8,16 +8,28 @@ namespace IoCAndDependencyInjection
     {
         static async Task Main(string[] args)
         {
-            WriteInputLabel("Enter a user's name: ");
-            var name = Console.ReadLine();
+           
             using (var userManagement = new UserManagement())
             {
-                var notification = await userManagement.AddNewUserAsync(name);
-                WriteResponse(notification.Message);
+                var name = GetName();
+                do
+                {
+                    var notification = await userManagement.AddNewUserAsync(name);
+                    WriteResponse($"Notification received:{notification.Message}");
+                    
+                    Console.WriteLine();
+                    name = GetName();
+
+                } while (!string.IsNullOrWhiteSpace(name));
             }
           
         }
 
+        static string GetName()
+        {
+            WriteInputLabel("Enter a user's name: ");
+            return Console.ReadLine();
+        }
         static void WriteInputLabel(string labelText)
         {
             Console.ForegroundColor = ConsoleColor.Magenta;
