@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using System.Threading.Tasks.Dataflow;
+using UserServices;
 
 namespace IoCAndDependencyInjection
 {
@@ -15,7 +15,7 @@ namespace IoCAndDependencyInjection
                 do
                 {
                     var notification = await userManagement.AddNewUserAsync(name);
-                    WriteResponse($"Notification received:{notification.Message}");
+                    WriteResponse($"Notification received:{notification.Message} - {notification.Method}");
                     
                     Console.WriteLine();
                     name = GetName();

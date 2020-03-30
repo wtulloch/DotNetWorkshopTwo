@@ -1,4 +1,4 @@
-﻿namespace IoCAndDependencyInjection
+﻿namespace UserServices
 {
     public class Notification
     {

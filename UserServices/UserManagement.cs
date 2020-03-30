@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace IoCAndDependencyInjection
+namespace UserServices
 {
     public class UserManagement: IDisposable
     {

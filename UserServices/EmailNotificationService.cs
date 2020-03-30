@@ -2,15 +2,15 @@
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace IoCAndDependencyInjection
+namespace UserServices
 {
     public class EmailNotificationService : IDisposable
     {
-        private Uri _uri = new Uri("https://tg-workshop.azurewebsites.net/api/SendSmsNotification");
+        private Uri _uri = new Uri("https://tg-workshop.azurewebsites.net/api/SendEmailNotification");
         private HttpClient _client = new HttpClient();
+
         private JsonSerializerOptions _jsonOptions = new JsonSerializerOptions
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase

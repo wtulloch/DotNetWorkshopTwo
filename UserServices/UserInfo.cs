@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace IoCAndDependencyInjection
+namespace UserServices
 {
     public class UserInfo : IEquatable<UserInfo>
     {

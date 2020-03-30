@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace IoCAndDependencyInjection
+namespace UserServices
 {
     public class UserRepository
     {

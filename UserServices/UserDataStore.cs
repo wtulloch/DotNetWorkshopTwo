@@ -1,7 +1,6 @@
 ﻿using System;
-using System.ComponentModel;
 
-namespace IoCAndDependencyInjection
+namespace UserServices
 {
     public class UserDataStore
     {
