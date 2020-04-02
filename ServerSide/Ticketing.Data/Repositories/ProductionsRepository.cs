@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -17,20 +18,54 @@ namespace Ticketing.Data.Repositories
             _ticketingContext = ticketingContext;
             _mapper = mapper;
         }
-        public Task<List<ProductionDto>> GetAllAvailableProductions()
+        public async Task<List<ProductionDto>> GetAllAvailableProductions()
         {
-            var currentProductions = _ticketingContext.Productions.Include(p => p.Shows);
+            var currentProductions = await _ticketingContext.Productions
+                .Include(p => p.Shows)
+                .Where(p => p.Shows.Any(s => s.ShowDate >= DateTime.Now))
+                .ToListAsync();
+
 
             var productionsToReturn = _mapper.Map<List<ProductionDto>>(currentProductions);
             foreach (var production in productionsToReturn)
             {
-
-                production.StartDate = production.Shows.Min(s => s.ShowDate);
-                production.EndDate = production.Shows.Max(s => s.ShowDate);
+                SetProductionStartAndEnd(production);
             }
 
-            return Task.FromResult(productionsToReturn);
+            return productionsToReturn;
+        }
 
+       
+
+        public async Task<ProductionDto> GetProductionById(int id)
+        {
+            var production = await _ticketingContext.Productions
+                .Where(p => p.Id == id)
+                .Include(p => p.Shows)
+                .FirstOrDefaultAsync();
+
+            var productionDto = _mapper.Map<ProductionDto>(production);
+            SetProductionStartAndEnd(productionDto);
+
+            return productionDto;
+        }
+
+        public async Task<ShowDto> GetShowById(int id)
+        {
+            var show = await _ticketingContext.Shows
+                .Include(s => s.Production)
+                .Include(s => s.Tickets)
+                .FirstOrDefaultAsync(s => s.Id == id);
+
+            var showDto = _mapper.Map<ShowDto>(show);
+
+            return showDto;
+        }
+
+        private static void SetProductionStartAndEnd(ProductionDto production)
+        {
+            production.StartDate = production.Shows.Min(s => s.ShowDate);
+            production.EndDate = production.Shows.Max(s => s.ShowDate);
         }
     }
 }

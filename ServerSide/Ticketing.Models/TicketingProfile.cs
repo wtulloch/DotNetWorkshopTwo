@@ -20,6 +20,12 @@ namespace Ticketing.Models
             CreateMap<Show, ShowSummaryDto>()
                 .ForMember(d => d.ShowDate, opt => opt.ConvertUsing(new DateToStringFormatter(), src => src.ShowDate));
 
+            CreateMap<Show, ShowDto>()
+                .ForMember(d => d.ShowDate, opt => opt.ConvertUsing(new DateToStringFormatter(), src => src.ShowDate))
+                .ForMember(d => d.ProductionName, opt => opt.MapFrom(src => src.Production.Name));
+
+            CreateMap<Ticket, TicketDto>();
+
         }
     }
 

@@ -8,5 +8,9 @@ namespace Ticketing.Data.Repositories
     public interface IProductionsRepository
     {
         Task<List<ProductionDto>> GetAllAvailableProductions();
+
+        Task<ProductionDto> GetProductionById(int id);
+
+        Task<ShowDto> GetShowById(int id);
     }
 }

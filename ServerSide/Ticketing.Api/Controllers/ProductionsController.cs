@@ -27,11 +27,15 @@ namespace Ticketing.Api.Controllers
         [HttpGet]
         public async Task<List<ProductionDto>> Productions()
         {
-
             return await _productionsRepository.GetAllAvailableProductions();
-
-
         }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ProductionDto>> Productions(int id)
+        {
+            return await _productionsRepository.GetProductionById(id);
+        }
+
     }
     
 }
