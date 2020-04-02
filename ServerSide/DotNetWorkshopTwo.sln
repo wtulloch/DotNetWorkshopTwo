@@ -29,15 +29,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserServices", "UserService
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserServicesTestFixtures", "UserServicesTestFixtures\UserServicesTestFixtures.csproj", "{078F8D54-1F26-41BE-B825-7CBE8F3D0ECB}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.", "5.", "{FAC5EB15-C533-4D17-8323-604876D4A968}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.WebApi", "5.WebApi", "{FAC5EB15-C533-4D17-8323-604876D4A968}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticketing.Models", "Ticketing.Models\Ticketing.Models.csproj", "{AAED2DBD-5E99-4DB9-9CF1-CB06F1AA5681}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ticketing.Models", "Ticketing.Models\Ticketing.Models.csproj", "{AAED2DBD-5E99-4DB9-9CF1-CB06F1AA5681}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticketing.Data", "Ticketing.Data\Ticketing.Data.csproj", "{6334E457-CED1-4461-8BC5-D370A2051C6C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ticketing.Data", "Ticketing.Data\Ticketing.Data.csproj", "{6334E457-CED1-4461-8BC5-D370A2051C6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticketing.Services", "Ticketing.Services\Ticketing.Services.csproj", "{75C961E0-7B05-44AE-B190-2B72D5DD5EB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ticketing.Services", "Ticketing.Services\Ticketing.Services.csproj", "{75C961E0-7B05-44AE-B190-2B72D5DD5EB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticketing.Api", "Ticketing.Api\Ticketing.Api.csproj", "{A2C9C388-5FB2-424B-8BA8-9C92D46D43A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ticketing.Api", "Ticketing.Api\Ticketing.Api.csproj", "{A2C9C388-5FB2-424B-8BA8-9C92D46D43A1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_.Set-up", "_.Set-up", "{FA3B7CC6-2981-489E-80C5-5326E80C4506}"
 EndProject
