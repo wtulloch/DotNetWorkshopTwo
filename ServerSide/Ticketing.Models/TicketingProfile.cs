@@ -26,6 +26,10 @@ namespace Ticketing.Models
 
             CreateMap<Ticket, TicketDto>();
 
+            CreateMap<User, UserDto>();
+            CreateMap<User, RegisterUserDto>()
+                .ReverseMap();
+
         }
     }
 
