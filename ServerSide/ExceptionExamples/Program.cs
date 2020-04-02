@@ -9,6 +9,17 @@ namespace ExceptionExamples
         static async Task Main(string[] args)
         {
             var workingExceptions = new WorkingExceptions();
+
+            workingExceptions.GetTextFromFile(@"c:\temp\test.txt");
+
+
+            //examples.ThisIsAStupidExample().Wait();
+
+            //await AsyncExceptions();
+        }
+
+        private static async Task AsyncExceptions()
+        {
             var examples = new AysncExamples();
             try
             {
@@ -24,11 +35,6 @@ namespace ExceptionExamples
             {
                 Console.WriteLine(e.Message);
             }
-            //workingExceptions.GetTextFromFile(@"c:\temp\test.txt");
-           
-
-            //examples.ThisIsAStupidExample().Wait();
-
         }
     }
 }

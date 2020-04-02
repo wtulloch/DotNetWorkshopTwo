@@ -11,7 +11,7 @@ namespace DataMigration
         {
             var options = new CommandLineParser<MigrationOptions>().Parse(args);
             var config = GetConfiguration();
-            var connectionString = config.GetConnectionString("PollyExpenses");
+            var connectionString = config.GetConnectionString("Ticketing");
             var dbUserPassword = options.Password ?? config["DbUser:Password"];
             Log.Logger = new LoggerConfiguration()
                 .ReadFrom.Configuration(config.GetSection("Logging"))
