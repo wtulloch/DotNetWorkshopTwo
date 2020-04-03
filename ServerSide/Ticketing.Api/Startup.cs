@@ -36,9 +36,6 @@ namespace Ticketing.Api
             });
 
             services.AddAutoMapper(typeof(TicketingProfile));
-            services.AddScoped<IProductionsRepository, ProductionsRepository>();
-            services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
             
             services.AddControllers();
         }

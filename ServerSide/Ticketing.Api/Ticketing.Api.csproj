@@ -18,5 +18,9 @@
     <ProjectReference Include="..\Ticketing.Models\Ticketing.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
 
 </Project>
