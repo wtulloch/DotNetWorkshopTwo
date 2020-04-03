@@ -18,7 +18,8 @@ namespace MiddlewareExamples
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseTestMiddleware();
+            // add Custom middleware.
+
             app.Use(async (context, next) =>
             {
                 Console.WriteLine("A (before)");
